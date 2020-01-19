@@ -7,6 +7,7 @@ public class DreambotUtils {
     private static AbstractScript script;
 
     public static void setScript(AbstractScript instance) {
+        AbstractScript.log("THIS IS A STATIC LOG ON SET SCRIPT");
         script = instance;
     }
 
