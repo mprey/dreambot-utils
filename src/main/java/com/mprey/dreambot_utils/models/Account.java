@@ -2,9 +2,9 @@ package com.mprey.dreambot_utils.models;
 
 public class Account {
 
-    public String username;
-    public String email;
-    public String password;
+    private String username;
+    private String email;
+    private String password;
 
     public Account(String username, String email, String password) {
         this.username = username;

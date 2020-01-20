@@ -1,30 +1,25 @@
 package com.mprey.dreambot_utils;
 
+import com.mprey.dreambot_utils.statics.Environment;
 import org.dreambot.api.script.AbstractScript;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class DreambotUtils {
 
     private static AbstractScript script;
-    private static Map<String, Object> params;
+    private static Environment environment = Environment.DEVELOPMENT;
 
     public static void setScript(AbstractScript instance) {
         log("Set AbstractScript instance");
         script = instance;
     }
 
-    public static void setParams(Map<String, Object> instance) {
-        AbstractScript.log("Set parameters instance");
-        params = instance;
+    public static void setEnvironment(String env) {
+        AbstractScript.log("Set environment instance");
+        environment = Environment.valueOf(env.toUpperCase());
     }
 
-    public static Map<String, Object> getParams() {
-        if (params == null) {
-            params = new HashMap();
-        }
-        return params;
+    public static Environment getEnvironment() {
+        return environment;
     }
 
     public static AbstractScript getScript() {
