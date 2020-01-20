@@ -12,7 +12,7 @@ public class JSON {
             AbstractScript.log("GOT T " + result.toString());
             return result;
         } catch (Exception e) {
-            AbstractScript.log("ERRORRRR"));
+            AbstractScript.log("ERRORRRR");
         }
         AbstractScript.log("BOTTOM");
         return null;
