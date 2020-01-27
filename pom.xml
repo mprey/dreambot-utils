@@ -24,7 +24,7 @@
             <artifactId>client</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
-            <systemPath>${dreambot.folder.path}/BotData/client.jar</systemPath>
+            <systemPath>${basedir}/src/main/resources/dreambot.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
