@@ -6,7 +6,7 @@ import org.dreambot.api.methods.RSLoginResponse;
 
 public class LoginManager {
 
-    enum LoginResponse {
+    public enum LoginResponse {
         SWITCH_WORLDS,
         SUCCESSFUL,
         SWITCH_ACCOUNTS
