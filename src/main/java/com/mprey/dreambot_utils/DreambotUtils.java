@@ -3,10 +3,26 @@ package com.mprey.dreambot_utils;
 import com.mprey.dreambot_utils.statics.Environment;
 import org.dreambot.api.script.AbstractScript;
 
+//@ScriptManifest(
+//        name = "DreambotUtils",
+//        description = "DreambotUtils",
+//        version = 1.1,
+//        author = "mprey",
+//        category = Category.MISC
+//)
 public class DreambotUtils {
 
     private static AbstractScript script;
     private static Environment environment = Environment.DEVELOPMENT;
+
+//    @Override
+//    public void onStart() {
+//    }
+//
+//    @Override
+//    public int onLoop() {
+//        return 1000;
+//    }
 
     public static void setScript(AbstractScript instance) {
         log("Set AbstractScript instance");

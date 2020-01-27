@@ -6,12 +6,18 @@ public class MuleTrade {
     private String account; // the mule account to send a trade request
     private int[] location;
     private int world;
+    private boolean completed;
+    private boolean failed;
 
-    public MuleTrade(int tradeId, String account, int[] location, int world) {
+    public MuleTrade() {}
+
+    public MuleTrade(int tradeId, String account, int[] location, int world, boolean completed, boolean failed) {
         this.tradeId = tradeId;
         this.account = account;
         this.location = location;
         this.world = world;
+        this.completed = completed;
+        this.failed = failed;
     }
 
     public int getTradeId() {
@@ -28,5 +34,13 @@ public class MuleTrade {
 
     public int getWorld() {
         return world;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public boolean isFailed() {
+        return failed;
     }
 }

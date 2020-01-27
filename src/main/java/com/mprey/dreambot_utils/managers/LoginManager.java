@@ -22,7 +22,7 @@ public class LoginManager {
             case DISABLED:
             case INVALID_LOGIN:
             case ACCOUNT_LOCKED: {
-                // TODO send to API that the account is banned
+                AccountManager.setAccountBanned(account);
                 return LoginResponse.SWITCH_ACCOUNTS;
             }
             case FULL_WORLD:
