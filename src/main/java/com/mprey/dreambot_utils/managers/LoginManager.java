@@ -9,11 +9,15 @@ public class LoginManager {
     public enum LoginResponse {
         SWITCH_WORLDS,
         SUCCESSFUL,
-        SWITCH_ACCOUNTS
+        SWITCH_ACCOUNTS,
+        UNABLE
     };
 
     public static LoginResponse login(Account account) {
         RSLoginResponse resp = DreambotUtils.getScript().getLoginUtility().login(account.getEmail(), account.getPassword());
+        if (resp == null) {
+            return LoginResponse.UNABLE;
+        }
 
         switch (resp) {
             case LOGGED_IN: {
