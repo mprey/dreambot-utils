@@ -32,6 +32,7 @@ public class LoginManager {
             case FULL_WORLD:
             case CLOSED_BETA:
             case MEMBERS_AREA:
+            case MEMBERS_WORLD:
                 return LoginResponse.SWITCH_WORLDS;
             default:
                 return LoginResponse.SWITCH_ACCOUNTS;
