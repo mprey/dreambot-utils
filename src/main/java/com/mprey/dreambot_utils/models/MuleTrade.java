@@ -1,5 +1,7 @@
 package com.mprey.dreambot_utils.models;
 
+import org.dreambot.api.methods.map.Tile;
+
 public class MuleTrade {
 
     private int tradeId;
@@ -28,8 +30,8 @@ public class MuleTrade {
         return account;
     }
 
-    public int[] getLocation() {
-        return location;
+    public Tile getLocation() {
+        return new Tile(location[0], location[1], location[2]);
     }
 
     public int getWorld() {
