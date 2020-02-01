@@ -18,17 +18,29 @@ public class MulesManager {
     }
 
     public static MuleTrade getTradeStatus(MuleTrade old) {
-        MuleTradeStatusRequest request = new MuleTradeStatusRequest(old.getTradeId());
+        return getTradeStatus(old.getTradeId());
+    }
+
+    public static MuleTrade getTradeStatus(int id) {
+        MuleTradeStatusRequest request = new MuleTradeStatusRequest(id);
         return APIManager.sendPOSTRequest(Endpoint.Mule.TRADE_STATUS.toString(), request, MuleTradeStatusResponse.class);
     }
 
     public static boolean setTradeSuccessful(MuleTrade trade, int amount) {
-        MuleTradeSuccessRequest request = new MuleTradeSuccessRequest(trade.getTradeId(), amount);
+        return setTradeSuccessful(trade.getTradeId(), amount);
+    }
+
+    public static boolean setTradeSuccessful(int id, int amount) {
+        MuleTradeSuccessRequest request = new MuleTradeSuccessRequest(id, amount);
         return APIManager.sendPOSTRequest(Endpoint.Mule.TRADE_SUCCESS.toString(), request, String.class).equals("Success");
     }
 
     public static boolean setTradeFailure(MuleTrade trade) {
-        MuleTradeFailureRequest request = new MuleTradeFailureRequest(trade.getTradeId());
+        return setTradeFailure(trade.getTradeId());
+    }
+
+    public static boolean setTradeFailure(int id) {
+        MuleTradeFailureRequest request = new MuleTradeFailureRequest(id);
         return APIManager.sendPOSTRequest(Endpoint.Mule.TRADES_FAILURE.toString(), request, String.class).equals("Success");
     }
 
