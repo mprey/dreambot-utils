@@ -13,8 +13,10 @@ public class SocketManager {
     private static Socket socket;
 
     public static void connect() {
+        String uri = DreambotUtils.getEnvironment().getSocketURI() + Endpoint.Socket.SCRIPTS;
         try {
-            socket = IO.socket(DreambotUtils.getEnvironment().getSocketURI() + Endpoint.Socket.SCRIPTS);
+            DreambotUtils.log("Trying to connect to socket: " + uri);
+            socket = IO.socket(uri);
         } catch (URISyntaxException e) {
             DreambotUtils.log("Error connecting to socket: " + e.getMessage());
         }

@@ -24,6 +24,7 @@ public class DreambotUtils {
                 DreambotUtils.log("Got request: " + objects[0]);
             }
         });
+        SocketManager.on("connected", (objects -> DreambotUtils.log("SOCKET CONNECTED!")));
     }
 
     public static Environment getEnvironment() {
