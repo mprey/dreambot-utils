@@ -9,6 +9,7 @@ public abstract class ParameterScript<T extends BaseParams> extends AbstractScri
     private static String SCRIPT_NAME;
 
     private T params;
+    private boolean running = true;
 
     public ParameterScript() {
         SCRIPT_NAME = this.getManifest().name();
@@ -26,6 +27,14 @@ public abstract class ParameterScript<T extends BaseParams> extends AbstractScri
 
     public T getParams() {
         return params;
+    }
+
+    public boolean isRunning() {
+        return running;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
     }
 
     public static void log(String s) {
