@@ -2,7 +2,6 @@ package com.mprey.dreambot_utils.managers;
 
 import com.google.gson.Gson;
 import com.mprey.dreambot_utils.DreambotUtils;
-import com.mprey.dreambot_utils.statics.Environment;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

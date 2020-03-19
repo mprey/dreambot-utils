@@ -1,13 +1,16 @@
 package com.mprey.dreambot_utils.statics;
 
+import com.google.gson.annotations.SerializedName;
+
 public enum Environment {
-    DEVELOPMENT("development", "http://localhost:3000"),
-    PRODUCTION("production", "https://dreambot-backend.herokuapp.com");
+    @SerializedName("development")
+    DEVELOPMENT("http://localhost:3000"),
+    @SerializedName("production")
+    PRODUCTION("https://dreambot-backend.herokuapp.com");
 
-    private String value, base;
+    private String base;
 
-    Environment(String value, String base) {
-        this.value = value;
+    Environment(String base) {
         this.base = base;
     }
 
@@ -20,6 +23,6 @@ public enum Environment {
     }
 
     public String toString() {
-        return this.value;
+        return this.name().toLowerCase();
     }
 }
