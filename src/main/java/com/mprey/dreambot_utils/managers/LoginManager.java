@@ -50,8 +50,9 @@ public class LoginManager {
                 return LoginResponse.SWITCH_WORLDS;
 
             case ADDRESS_BLOCKED:
-            case ALREADY_LOGGED_IN:
+            case ALREADY_LOGGED_IN: {
                 return LoginResponse.SWITCH_ACCOUNTS;
+            }
 
             default:
                 return LoginResponse.UNABLE;

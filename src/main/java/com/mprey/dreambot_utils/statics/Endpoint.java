@@ -60,4 +60,19 @@ public class Endpoint {
             return "/slaves" + endpoint;
         }
     }
+
+    public enum Socket {
+        SCRIPT("/script");
+
+        private String endpoint;
+
+        Socket(String endpoint) {
+            this.endpoint = endpoint;
+        }
+
+        @Override
+        public String toString() {
+            return "/sockets" + endpoint;
+        }
+    }
 }

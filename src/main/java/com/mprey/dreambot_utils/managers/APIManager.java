@@ -86,11 +86,7 @@ public class APIManager {
     }
 
     private static String getURLBase() {
-        if (DreambotUtils.getEnvironment() == Environment.DEVELOPMENT) {
-            return Environment.DEVELOPMENT.getAPI();
-        } else {
-            return Environment.PRODUCTION.getAPI();
-        }
+        return DreambotUtils.getEnvironment().getAPI();
     }
 
 }
