@@ -14,7 +14,7 @@ public class SocketManager {
 
     public static void connect() {
         try {
-            socket = IO.socket(DreambotUtils.getEnvironment().getAPI() + Endpoint.Socket.SCRIPT);
+            socket = IO.socket(DreambotUtils.getEnvironment().getSocketURI() + Endpoint.Socket.SCRIPTS);
         } catch (URISyntaxException e) {
             DreambotUtils.log("Error connecting to socket: " + e.getMessage());
         }

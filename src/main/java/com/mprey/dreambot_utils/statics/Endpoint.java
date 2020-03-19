@@ -62,7 +62,7 @@ public class Endpoint {
     }
 
     public enum Socket {
-        SCRIPT("/script");
+        SCRIPTS("/scripts");
 
         private String endpoint;
 
@@ -72,7 +72,7 @@ public class Endpoint {
 
         @Override
         public String toString() {
-            return "/sockets" + endpoint;
+            return endpoint;
         }
     }
 }
