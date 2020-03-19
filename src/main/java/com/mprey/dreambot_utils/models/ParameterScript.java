@@ -20,7 +20,7 @@ public abstract class ParameterScript extends AbstractScript {
         ScriptManager.shutdown("No CLI parameters");
     }
 
-    private void loadParams(String raw, Class<? extends BaseParams> clazz) {
+    protected void loadParams(String raw, Class<? extends BaseParams> clazz) {
         this.params = JSON.parseParams(raw, clazz);
     }
 
