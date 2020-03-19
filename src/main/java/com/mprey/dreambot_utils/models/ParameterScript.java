@@ -4,11 +4,11 @@ import com.mprey.dreambot_utils.helpers.JSON;
 import com.mprey.dreambot_utils.managers.ScriptManager;
 import org.dreambot.api.script.AbstractScript;
 
-public abstract class ParameterScript extends AbstractScript {
+public abstract class ParameterScript<T extends BaseParams> extends AbstractScript {
 
     private static String SCRIPT_NAME;
 
-    private BaseParams params;
+    private T params;
 
     public ParameterScript() {
         SCRIPT_NAME = this.getManifest().name();
@@ -20,11 +20,11 @@ public abstract class ParameterScript extends AbstractScript {
         ScriptManager.shutdown("No CLI parameters");
     }
 
-    protected void loadParams(String raw, Class<? extends BaseParams> clazz) {
+    protected void loadParams(String raw, Class<T> clazz) {
         this.params = JSON.parseParams(raw, clazz);
     }
 
-    public BaseParams getParams() {
+    public T getParams() {
         return params;
     }
 
