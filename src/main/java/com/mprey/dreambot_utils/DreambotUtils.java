@@ -14,7 +14,9 @@ public class DreambotUtils {
         script = instance;
         log("Registered new script: " + script.getManifest().name() + " ("
                 + instance.getParams().getEnvironment() + " - " + instance.getParams().getUUID() + ")");
+    }
 
+    public static void registerSocket() {
         SocketManager.connect();
         SocketManager.on("SHUTDOWN", new Emitter.Listener() {
             @Override
