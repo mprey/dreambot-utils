@@ -15,7 +15,7 @@ public class LoginManager {
         UNABLE
     };
 
-    public static LoginResponse login(Account account) {
+    public static LoginResponse login(Account account, boolean autoBan) {
         RSLoginResponse resp = DreambotUtils.getScript().getLoginUtility().login(account.getEmail(), account.getPassword());
         if (resp == null) {
             return LoginResponse.UNABLE;
@@ -39,7 +39,7 @@ public class LoginManager {
             case DISABLED:
             case INVALID_LOGIN:
             case ACCOUNT_LOCKED: {
-                AccountManager.setAccountBanned(account);
+                if (autoBan) AccountManager.setAccountBanned(account);
                 return LoginResponse.DISABLED;
             }
 
@@ -57,6 +57,10 @@ public class LoginManager {
             default:
                 return LoginResponse.UNABLE;
         }
+    }
+
+    public static LoginResponse login(Account account) {
+        return login(account, true);
     }
 
 }
