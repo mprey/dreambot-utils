@@ -17,6 +17,7 @@ public class SocketManager {
         try {
             DreambotUtils.log("Trying to connect to socket: " + uri);
             socket = IO.socket(uri);
+            socket.connect();
         } catch (URISyntaxException e) {
             DreambotUtils.log("Error connecting to socket: " + e.getMessage());
         }
