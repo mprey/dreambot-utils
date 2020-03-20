@@ -18,12 +18,7 @@ public class DreambotUtils {
 
     public static void registerSocket() {
         SocketManager.connect();
-        SocketManager.on("SHUTDOWN", new Emitter.Listener() {
-            @Override
-            public void call(Object... objects) {
-                DreambotUtils.log("Got request: " + objects[0]);
-            }
-        });
+        SocketManager.registerDefaultListeners();
     }
 
     public static Environment getEnvironment() {

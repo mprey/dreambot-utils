@@ -28,4 +28,10 @@ public class SocketManager {
         return socket;
     }
 
+    public static void registerDefaultListeners() {
+        socket.on("SHUTDOWN", (objects -> DreambotUtils.log("GOT SHUTDOWN" + objects[0])));
+
+        socket.on("GET_UUID", (objects -> DreambotUtils.getScript().getParams().getUUID()));
+    }
+
 }
