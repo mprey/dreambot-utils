@@ -9,6 +9,10 @@ public class ScriptManager {
 
         // TODO send an endpoint notification saying we shut down
 
+        if (DreambotUtils.getScript() != null) {
+            DreambotUtils.getScript().onExit();
+        }
+
         System.exit(0);
     }
 
