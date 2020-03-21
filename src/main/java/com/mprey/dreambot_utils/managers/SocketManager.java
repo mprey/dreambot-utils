@@ -30,7 +30,14 @@ public class SocketManager {
     }
 
     public static void registerDefaultListeners() {
-        socket.on("SHUTDOWN", (objects -> DreambotUtils.log("GOT SHUTDOWN" + objects[0])));
+        socket.on("SHUTDOWN", (objects -> {
+            DreambotUtils.log("Got request to shutdown");
+            if (objects.length > 0) {
+                Ack ack = (Ack) objects[0];
+                ack.call();
+            }
+            ScriptManager.shutdown("Request by socket");
+        }));
 
         socket.on("GET_UUID", (objects -> {
             DreambotUtils.log("Got request for UUID");
