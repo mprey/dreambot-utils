@@ -13,7 +13,7 @@ public class ScriptManager {
             DreambotUtils.getScript().onExit();
         }
 
-        System.exit(0);
+        System.exit(150);
     }
 
 }
