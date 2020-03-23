@@ -17,7 +17,9 @@ public class SocketManager {
         String uri = DreambotUtils.getEnvironment().getSocketURI() + Endpoint.Socket.SCRIPTS;
         try {
             DreambotUtils.log("Trying to connect to socket: " + uri);
-            socket = IO.socket(uri);
+            IO.Options options = new IO.Options();
+            options.query = "uuid=" + DreambotUtils.getScript().getParams().getUUID();
+            socket = IO.socket(uri, options);
             socket.connect();
         } catch (URISyntaxException e) {
             DreambotUtils.log("Error connecting to socket: " + e.getMessage());
@@ -38,12 +40,12 @@ public class SocketManager {
             }
             ScriptManager.shutdown("Request by socket");
         }));
-
-        socket.on("GET_UUID", (objects -> {
-            DreambotUtils.log("Got request for UUID");
-            Ack ack = (Ack) objects[0];
-            ack.call(DreambotUtils.getScript().getParams().getUUID());
-        }));
+//
+//        socket.on("GET_UUID", (objects -> {
+//            DreambotUtils.log("Got request for UUID");
+//            Ack ack = (Ack) objects[0];
+//            ack.call(DreambotUtils.getScript().getParams().getUUID());
+//        }));
     }
 
 }
